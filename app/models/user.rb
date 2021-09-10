@@ -31,7 +31,7 @@ class User < ApplicationRecord
   def self.search(param) 
     param.strip!
     to_send_back = (first_name_matches(param) + last_name_matches(param) + email_matches(param)).uniq
-    return unless to_send_back
+    return nil unless to_send_back
     to_send_back
   end
 
